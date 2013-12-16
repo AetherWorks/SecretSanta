@@ -6,15 +6,17 @@ fn main() {
 
 	let names = ~["Angus", "Greg", "Lewis", "Mike", "Isabel", "Rob", "Shannon", "Allan"];
 
-	secret_santa(names, pairs);	
+	secret_santa(names);	
 }
 
-fn secret_santa(names: ~[&str], pairs: ~[(&str, &str)]) {
+fn secret_santa(names: ~[&str]) {
 	let mut rng = rand::rng();
 	let mut unshuffled_names = names.clone();
 	let mut shuffled_names = rng.shuffle(names.clone());
 
 	println!("Picking pairings from: {:?}", unshuffled_names);
+
+	let mut pairs = ~[];
 
 	while shuffled_names.len() > 0 {
 		let chosen = unshuffled_names.pop();
@@ -40,8 +42,6 @@ fn secret_santa(names: ~[&str], pairs: ~[(&str, &str)]) {
 	} else {
 		print_pairings(pairs);
 	}
-
-	return pairs; 
 } 
 
 fn print_pairings(pairings: ~[(&str, &str)]) {
