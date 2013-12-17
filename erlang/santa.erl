@@ -1,34 +1,17 @@
 %% @author Angus Macdonald (amacdonald AT aetherworks.com)
 %% @doc Utility for picking secret santa selections from a group of people.
-%% @version 1.0
 
 -module(santa).
 
 -export([select/1]).
 
 -spec(select(list()) -> list()).
-%% @doc Takes a list of peoples names, and makes secret assignments
-%% to determine who each person's secret santa is.
+%% @doc Takes a list of peoples names, shuffles to create a random ordering,
+%% then rotates a clone of this list to determine who has who in secret santa.
 select(People) ->
-	print_list("Unshuffled: ", People),
-
 	ShuffledPeople = shuffle(People),
-	print_list("Shuffled: ", ShuffledPeople),
-	
 	RotatedPeople = rotate(ShuffledPeople),
-
-	print_list("Rotated: ", RotatedPeople),
-
-	Assignments = assign(ShuffledPeople, RotatedPeople),
-
-	Assignments.
-
-
-%% @doc Takes two equal size lists and zips them, to create the
-%% assignments for each persons secret santa.
--spec(assign(list(), list()) -> list()).
-assign(ListA, ListB) ->
-	lists:zip(ListA, ListB).
+	lists:zip(ShuffledPeople, RotatedPeople).
 
 %% @doc Takes a list and returns a new list, which is left rotated by 1.
 -spec(rotate(list()) -> list()).
@@ -38,15 +21,9 @@ rotate(List)->
 	{Left, Right} = lists:split(1, List), 
 	Right ++ Left.
  
-
-%% @doc Utility to print the contents of a list, prepended by a prefix.
- print_list(Prefix, List) ->
- 	io:format(Prefix),
-	ListPrinter = fun(E) -> io:format("~p, ",[E]) end,
- 	lists:foreach(ListPrinter,List),
- 	io:format("~n").
-
-%% Utility to shuffle a list and return the new list.
+%% @doc Utility to shuffle a list and return the new list. Accumulates the new list by
+%% picking a random element from the existing list, then recursively doing this for each
+%% successively smaller list.
 shuffle(List) -> shuffle(List, []).
 shuffle([], Acc) -> Acc;
 shuffle(List, Acc) ->
