@@ -13,34 +13,20 @@ fn main() {
 
 fn secret_santa<'r>(names: &~[&'r str]) -> ~[(&'r str,&'r str)] {
 	let mut rng = rand::rng();
-	let mut unshuffled_names = names.clone();
 	let mut shuffled_names = rng.shuffle(names.clone());
 
-	println!("Picking pairings from: {:?}", unshuffled_names);
+	println!("Picking pairings from: {:?}", names);
 
 	let mut pairs = ~[];
 
-	while shuffled_names.len() > 0 {
-		let chosen = unshuffled_names.pop();
-		let partner = shuffled_names.pop();
+	let first = shuffled_names.last().clone();
+	shuffled_names.unshift(first);
 
-		if( chosen == partner ) {
-			unshuffled_names.push(chosen);
-			shuffled_names.push(partner);
-
-			if(shuffled_names.len() == 1) {
-				break;
-			}
-			rng.shuffle_mut(shuffled_names);
-			loop; 
-		}
+	while shuffled_names.len() > 1 {
+		let chosen = shuffled_names.pop();
+		let partner = shuffled_names.last().clone();
 
 		pairs.push((chosen,partner));
-	}
-
-	if(shuffled_names.len() == 1) {
-		println("Restarting - no good solution.");
-		secret_santa(names);
 	}
 
 	return pairs.clone();
