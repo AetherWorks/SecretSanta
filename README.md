@@ -5,9 +5,9 @@ Pick your language, pick your secret santa.
 
 Several different Implementations of secret santa algorithms, each in a different language.
 
-# How to Run
+## How to Run
 
-## Erlang 
+### Erlang 
 
 The only pre-requisite is the erlang compiler. To run in the terminal:
 
