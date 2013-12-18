@@ -11,7 +11,7 @@ Algorithm
 * While N is not empty
  * Pop values off N (Nx) and N' (Nx')
  * Compare Nx and Nx'
-  * If same
-  * Push values Nx and Nx' onto N and N'
-  * Shuffle N'
-  * Loop 
+   * If same
+   * Push values Nx and Nx' onto N and N'
+   * Shuffle N'
+   * Loop 
