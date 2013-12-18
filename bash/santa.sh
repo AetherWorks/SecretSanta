@@ -19,7 +19,6 @@ count=0
 for i in "${shuffednames[@]}"
 do
 	if [ $count -gt 0 ]; then
-		#echo $i"buys for" $prevName
 		actionSanta $i $prevName
 	fi
 	prevName=$i
