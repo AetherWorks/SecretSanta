@@ -23,7 +23,7 @@ This function returns an array of tuples matching the secret santa giver to the 
 
 ### Bash
 
-The Bash implementation uses a list of email addresses, representing the Secret Santa participants. To generalise the approach, imagine asking all participants to stand in a (randomly ordered) circle and buy a present to the person on their left.
+The Bash implementation uses a list of email addresses, representing the Secret Santa participants. To generalise the approach, imagine asking all participants to stand in a (randomly ordered) circle and buy a present for the person on their left.
 
 To do this in bash there are essentially there are 5 steps:
 
