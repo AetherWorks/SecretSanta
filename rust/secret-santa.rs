@@ -40,7 +40,7 @@ fn secret_santa<'r>(names: &~[&'r str]) -> ~[(&'r str,&'r str)] {
 
 	if(shuffled_names.len() == 1) {
 		println("Restarting - no good solution.");
-		secret_santa(names);
+		return secret_santa(names);
 	}
 
 	return pairs.clone();
