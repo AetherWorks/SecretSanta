@@ -31,14 +31,11 @@ This script will output the list selections to the terminal, but will also attem
 
 ### Rust
 
-Running
----
-
+#### Running
 * Install rust (http://www.rust-lang.org/)
 * rust run secret-santa.rs
 
-Algorithm
----
+#### Algorithm
 
 * Create stack of names (N)
 * Create stack of shuffled names (N')
