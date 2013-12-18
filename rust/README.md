@@ -18,3 +18,4 @@ Algorithm
       * Shuffle N'
       * Loop
   * Add pair of names to picked pairs (P)
+* Return P
