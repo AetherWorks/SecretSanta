@@ -14,7 +14,7 @@ Algorithm
    * If same
       * Push values Nx and Nx' onto N and N'
       * Is size of Nx equal to 1
-         * Re-run - no solution can be found
+         * Re-run - no solution can be found (we're stuck with one person buying for themselves)
       * Shuffle N'
       * Loop
   * Add pair of names to picked pairs (P)
