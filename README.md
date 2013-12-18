@@ -33,7 +33,8 @@ This script will output the list selections to the terminal, but will also attem
 
 #### Running
 * Install rust (http://www.rust-lang.org/)
-* rust run secret-santa.rs
+
+    rust run secret-santa.rs
 
 #### Algorithm
 
