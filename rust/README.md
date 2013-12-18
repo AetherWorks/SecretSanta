@@ -13,6 +13,8 @@ Algorithm
  * Compare Nx and Nx'
    * If same
       * Push values Nx and Nx' onto N and N'
+      * Is size of Nx equal to 1
+         * Re-run - no solution can be found
       * Shuffle N'
       * Loop
   * Add pair of names to picked pairs (P)
