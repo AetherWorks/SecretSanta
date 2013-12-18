@@ -23,11 +23,25 @@ This function returns an array of tuples matching the secret santa giver to the 
 
 ### Bash
 
+The Bash implementation uses a list of email addresses, representing the Secret Santa participants. To generalise the approach, imagine asking all participants to stand in a (randomly ordered) circle and buy a present to the person on their left.
+
+To do this in bash there are essentially there are 5 steps:
+
+  * shuffle email addresses
+  * read in the emails from the file into an array
+  * save the name of the first person
+  * iterate over the array, 
+     * each person buys for the next person
+  * the last person buys for the first person
+
+#### To run 
+
 Requires bash 4.0, as the `readarray` command is relatively new!
 
     > ./santa.sh
 
 This script will output the list selections to the terminal, but will also attempt to use the `mail` command to email each person their recipient. To make it a surprise, simply comment out the line in the `actionSanta` function that `echo`'s to the terminal.  
+
 
 ### Rust
 
