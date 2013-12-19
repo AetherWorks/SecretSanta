@@ -62,14 +62,13 @@ Requires bash 4.0, as the `readarray` command is relatively new!
 
 This script will output the list selections to the terminal, but will also attempt to use the `mail` command to email each person their recipient. To make it a surprise, simply comment out the line in the `actionSanta` function that `echo`'s to the terminal.  
 
-
 ### Rust
 
 This solution implements Algorithm B.
 
 #### To Run 
 
-First install rust (http://www.rust-lang.org/) then run with:
+First install rust (http://www.rust-lang.org/), then run with:
 
     rust run secret-santa.rs
 
@@ -83,3 +82,13 @@ First install python (http://www.python.org/download/), then run with:
 
     > python secretSanta.py 
 
+### Java
+
+This solution implements Algorithm B.
+
+#### To Run
+
+First install Java JDK (http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html), then run with:
+
+    > javac SecretSanta.java
+    > java SecretSanta [space-separated list of names]
