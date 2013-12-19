@@ -64,3 +64,16 @@ This script will output the list selections to the terminal, but will also attem
       * Loop
   * Add pair of names to picked pairs (P)
 * Return P
+* 
+
+
+### Python
+
+#### Running
+* Install pyhton (http://www.python.org/download/)
+* Run 'python secretSanta.py'
+* 
+
+#### Algorithm
+
+The python program is relatively simple and short as the python language provides some great build-in functions. A collections `deque` list contains the names that is first shuffled to produce a random permutation of the names. Since the arrangement of people is unknown we can simply assign a secret santa to one person by selecting the neighbour to the left or right. This can be realized by copying the original list into a new list and using the `rotate` function to shift each name by 1 to the left. 
