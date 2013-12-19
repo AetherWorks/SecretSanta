@@ -64,7 +64,7 @@ This script will output the list selections to the terminal, but will also attem
 
 ### Rust
 
-This solution implements Algorithm B.
+This solution implements a variant on Algorithm B. It works sequentially picking pairs and validating them. It backtracks and picks again if we pick somebody for themselves. If we reach a situation where we are left with only one person picking for themselves we restart.
 
 #### To Run 
 
