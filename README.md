@@ -5,9 +5,32 @@ Pick your language, pick your secret santa.
 
 Several different Implementations of secret santa algorithms, each in a different language.
 
-## How to Run
+## Solutions
+
+These implementations solve the secret santa problem in of two ways.
+
+Algorithm A:
+1. Randomly shuffle the list of participants
+2. Each participant receives a gift from the participant that precedes them in the shuffled list
+3. Each participant buys a gift for the participant that follows them in the shuffled list
+
+Algorithm B:
+1. Copy the participants into two lists: buyers and receivers
+2. Randomly shuffle receivers; do nothing to buyers
+3. Check the value at every position in buyers and make sure that the corresponding value at the same position in receivers is not the same (the buyer is not buying for him/herself)
+4. Go back to step (2) if the check in step (3) failed; otherwise we’re done!
+
+Algorithm A isn't able to generate every possible valid combination of assignments, because it cannot produce loops where person A has to buy for person B, and person B has to buy for person A.
+
+Algorithm B is able to generate every valid combination, but will often have to shuffle multiple times to find a correct combination.
+
+## Solution-specific Notes
 
 ### Erlang 
+
+This solution contains implementations of both algorithms. `select_rotate` is an implementation of Algorithm A, while `select_shuffle` is an implementation of Algorithm B.
+
+#### To Run
 
 The only pre-requisite is the erlang compiler. To run in the terminal:
 
@@ -25,26 +48,11 @@ This function returns an array of tuples matching the secret santa giver to the 
     [{"Angus","Shannon"}, {"Shannon","Lewis"}, {"Lewis","Greg"}, {"Greg","Mike"}, {"Mike","Rob"}, 
     {"Rob","Ally"}, {"Ally","Isabel"}, {"Isabel","Angus"}]
 
-#### Algorithm
-
-The `select_rotate` solution shuffles the list, creates a copy, and then rotates that to produce the pairings. This means that no-one will ever have to buy a present for someone who has to buy a present for them (it's a loop).
-
-The `select_shuffle` solution, creates a copy, shuffles this copy, and checks that no-one has been selected to by a present for themselves. If they have, the function is called again until this isn't true. This solution requires more iteration in the average case, but it doesn't necessarily create a loop (two people may have to buy presents for each other).
-
 ### Bash
 
-The Bash implementation uses a list of email addresses, representing the Secret Santa participants. To generalise the approach, imagine asking all participants to stand in a (randomly ordered) circle and buy a present for the person on their left.
+The Bash implementation uses a list of email addresses, representing the Secret Santa participants. It implements Algorithm A.
 
-To do this in bash there are essentially there are 5 steps:
-
-  * shuffle email addresses
-  * read in the emails from the file into an array
-  * save the name of the first person
-  * iterate over the array, 
-     * each person buys for the next person
-  * the last person buys for the first person
-
-#### To run 
+#### To Run 
 
 Requires bash 4.0, as the `readarray` command is relatively new!
 
@@ -55,36 +63,21 @@ This script will output the list selections to the terminal, but will also attem
 
 ### Rust
 
-#### Running
-* Install rust (http://www.rust-lang.org/)
-* Execute `rust run secret-santa.rs`
+This solution implements Algorithm B.
 
-#### Algorithm
+#### To Run 
 
-* Create stack of names (N)
-* Create stack of shuffled names (N')
-* While N is not empty
- * Pop values off N (Nx) and N' (Nx')
- * Compare Nx and Nx'
-   * If same
-      * Push values Nx and Nx' onto N and N'
-      * Is size of Nx equal to 1
-         * Re-run - no solution can be found (we're stuck with one person buying for themselves)
-      * Shuffle N'
-      * Loop
-  * Add pair of names to picked pairs (P)
-* Return P
+First install rust (http://www.rust-lang.org/) then run with:
+
+    rust run secret-santa.rs
 
 ### Python
 
-#### Running
+This solution implements Algorithm A.
 
-* Install python (http://www.python.org/download/)
+#### To Run 
 
-Run
+First install python (http://www.python.org/download/), then run with:
 
     > python secretSanta.py 
 
-#### Algorithm
-
-The python program is relatively simple and short as the python language provides some great build-in functions. A collections `deque` list contains the names that is first shuffled to produce a random permutation of the names. Since the arrangement of people is unknown we can simply assign a secret santa to one person by selecting the neighbour to the left or right. This can be realized by copying the original list into a new list and using the `rotate` function to shift each name by 1 to the left. 
