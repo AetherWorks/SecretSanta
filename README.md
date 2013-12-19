@@ -9,12 +9,14 @@ Several different Implementations of secret santa algorithms, each in a differen
 
 These implementations solve the secret santa problem in of two ways.
 
-Algorithm A:
+#### Algorithm A:
+
 1. Randomly shuffle the list of participants
 2. Each participant receives a gift from the participant that precedes them in the shuffled list
 3. Each participant buys a gift for the participant that follows them in the shuffled list
 
-Algorithm B:
+#### Algorithm B:
+
 1. Copy the participants into two lists: buyers and receivers
 2. Randomly shuffle receivers; do nothing to buyers
 3. Check the value at every position in buyers and make sure that the corresponding value at the same position in receivers is not the same (the buyer is not buying for him/herself)
