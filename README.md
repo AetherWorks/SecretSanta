@@ -13,13 +13,23 @@ The only pre-requisite is the erlang compiler. To run in the terminal:
 
     > erl
     > c(santa).
-    > santa:select(["EmployeeA", "EmployeeB", "EmployeeC", "EmployeeD"]).
-  
+    > santa:select_rotate(["EmployeeA", "EmployeeB", "EmployeeC", "EmployeeD"]).
+
+Or to run the shuffled solution:
+
+    > santa:select_shuffle(["EmployeeA", "EmployeeB", "EmployeeC", "EmployeeD"]).
+
 This function returns an array of tuples matching the secret santa giver to the peson they have to give a gift to. For example:
 
-    > santa:select(["Angus", "Greg", "Mike", "Isabel", "Lewis", "Shannon", "Ally", "Rob"]).
+    > santa:select_rotate(["Angus", "Greg", "Mike", "Isabel", "Lewis", "Shannon", "Ally", "Rob"]).
     [{"Angus","Shannon"}, {"Shannon","Lewis"}, {"Lewis","Greg"}, {"Greg","Mike"}, {"Mike","Rob"}, 
     {"Rob","Ally"}, {"Ally","Isabel"}, {"Isabel","Angus"}]
+
+#### Algorithm
+
+The `select_rotate` solution shuffles the list, creates a copy, and then rotates that to produce the pairings. This means that no-one will ever have to buy a present for someone who has to buy a present for them (it's a loop).
+
+The `select_shuffle` solution, creates a copy, shuffles this copy, and checks that no-one has been selected to by a present for themselves. If they have, the function is called again until this isn't true. This solution requires more iteration in the average case, but it doesn't necessarily create a loop (two people may have to buy presents for each other).
 
 ### Bash
 
