@@ -3,15 +3,30 @@
 
 -module(santa).
 
--export([select/1]).
+-export([select_rotate/1, select_shuffle/1]).
 
--spec(select(list()) -> list()).
+-spec(select_rotate(list()) -> list()).
 %% @doc Takes a list of peoples names, shuffles to create a random ordering,
 %% then rotates a clone of this list to determine who has who in secret santa.
-select(People) ->
+%% This solution doesn't allow people to get each other.
+select_rotate(People) ->
 	ShuffledPeople = shuffle(People),
 	RotatedPeople = rotate(ShuffledPeople),
 	lists:zip(ShuffledPeople, RotatedPeople).
+
+-spec(select_shuffle(list()) -> list()).
+%% @doc Takes a list of peoples names, creates a copy and keeps on shuffling
+%% the copy until a combination is found with no person having themselves.
+%% This solution allows people to get each other.
+select_shuffle(People) ->
+	io:format("Called."),
+	Shuffled = shuffle(People),
+	Zipped = lists:zip(People, Shuffled),
+
+	case lists:all(fun ({A, B}) -> A =/= B end, Zipped) of
+		true -> Zipped;
+		false -> select_shuffle(People)
+	end.
 
 %% @doc Takes a list and returns a new list, which is left rotated by 1.
 -spec(rotate(list()) -> list()).
