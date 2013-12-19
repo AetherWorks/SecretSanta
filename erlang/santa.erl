@@ -24,6 +24,7 @@ rotate(List)->
 %% @doc Utility to shuffle a list and return the new list. Accumulates the new list by
 %% picking a random element from the existing list, then recursively doing this for each
 %% successively smaller list.
+%% From: http://chimera.labs.oreilly.com/books/1234000000726/ch07.html#CH07-ET05
 shuffle(List) -> shuffle(List, []).
 shuffle([], Acc) -> Acc;
 shuffle(List, Acc) ->
