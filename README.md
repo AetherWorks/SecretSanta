@@ -64,18 +64,16 @@ This script will output the list selections to the terminal, but will also attem
       * Loop
   * Add pair of names to picked pairs (P)
 * Return P
-* 
+
 
 
 ### Python
 
 #### Running
 * Install pyhton (http://www.python.org/download/)
-* Run
+* Run 
 
-Run:
-    > python secretSanta.py
-
+    > dewqsd
 
 #### Algorithm
 
