@@ -71,8 +71,9 @@ This script will output the list selections to the terminal, but will also attem
 
 #### Running
 * Install pyhton (http://www.python.org/download/)
-* Run 'python secretSanta.py'
-* 
+* Run 
+    > python secretSanta.py'
+
 
 #### Algorithm
 
