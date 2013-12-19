@@ -5,6 +5,10 @@ Pick your language, pick your secret santa.
 
 Several different Implementations of secret santa algorithms, each in a different language.
 
+## Contributions Welcome
+
+If you want to write your own secret santa implementation in another language, we're a very welcoming bunch. Send as a pull request and we'll add it!
+
 ## Solutions
 
 These implementations solve the secret santa problem in of two ways.
