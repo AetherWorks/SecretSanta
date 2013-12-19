@@ -19,7 +19,6 @@ select_rotate(People) ->
 %% the copy until a combination is found with no person having themselves.
 %% This solution allows people to get each other.
 select_shuffle(People) ->
-	io:format("Called."),
 	Shuffled = shuffle(People),
 	Zipped = lists:zip(People, Shuffled),
 
