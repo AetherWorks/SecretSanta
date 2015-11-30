@@ -96,3 +96,17 @@ First install Java JDK (http://www.oracle.com/technetwork/java/javase/downloads/
 
     > javac SecretSanta.java
     > java SecretSanta [space-separated list of names]
+
+### Clojure
+
+This implementation uses the following algorithm:
+
+* Loop through participants
+* For each participant, get a random giftee from the list of eligible giftees, excluding the participant
+* Remove selected giftee from list of eligible giftees
+
+#### To Run
+
+[Download clojure](http://clojure.org/downloads) and extract files
+
+    > java -cp /path/to/clojure.jar clojure.main /path/to/santa.clj
