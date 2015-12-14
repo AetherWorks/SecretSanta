@@ -110,3 +110,13 @@ This implementation uses the following algorithm:
 [Download clojure](http://clojure.org/downloads) and extract files
 
     > java -cp /path/to/clojure.jar clojure.main /path/to/santa.clj
+	
+### PowerShell
+
+This solution implements Algorithm B.
+
+#### To Run
+
+Run PowerShell console and then run: /path/to/SecretSanta.ps1
+In order to run scripts, you may need to first run: Set-ExecutionPolicy Unrestricted
+PowerShell is included in Windows 7 and above.
